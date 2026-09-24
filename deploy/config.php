@@ -9,8 +9,8 @@ function env(string $key, string $default = ''): string {
 
 // >>> InfinityFree MySQL Credentials <<<
 define('DB_HOST', env('DB_HOST', 'sql302.infinityfree.com'));
-define('DB_NAME', env('DB_NAME', 'if0_42999413_vms'));
-define('DB_USER', env('DB_USER', 'if0_42999413'));
+define('DB_NAME', env('DB_NAME', 'if0_42999410_vms'));
+define('DB_USER', env('DB_USER', 'if0_42999410'));
 define('DB_PASS', env('DB_PASS', 'ag1122GA'));
 
 define('APP_NAME', env('APP_NAME', 'VMS'));
