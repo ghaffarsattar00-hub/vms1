@@ -1,0 +1,24 @@
+# VMS - Apache rewrite (shared hosting)
+RewriteEngine On
+
+# Allow real files/folders
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Send everything else to front controller
+RewriteRule ^ index.php [L]
+
+# Deny access to sensitive patterns (defense in depth)
+<FilesMatch "^(config\.php|\.env)">
+    Require all denied
+</FilesMatch>
+
+# Security headers
+<IfModule mod_headers.c>
+    X-Content-Type-Options: nosniff
+    X-Frame-Options: SAMEORIGIN
+    Referrer-Policy: strict-origin-when-cross-origin
+</IfModule>
+
+# Disable directory listing
+Options -Indexes
