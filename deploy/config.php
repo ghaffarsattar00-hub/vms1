@@ -7,11 +7,11 @@ function env(string $key, string $default = ''): string {
     return ($v === false || $v === '') ? $default : $v;
 }
 
-// >>> HOSTING PANEL SE YE 4 VALUES UPDATE KARO <<<
-define('DB_HOST', env('DB_HOST', 'sqlXXX.byetcluster.com')); // e.g. sql305.byetcluster.com
-define('DB_NAME', env('DB_NAME', 'if0_XXXXXXX_vms'));         // panel jaisa
-define('DB_USER', env('DB_USER', 'if0_XXXXXXX'));             // panel jaisa
-define('DB_PASS', env('DB_PASS', 'YOUR_DB_PASSWORD'));        // panel password
+// >>> InfinityFree MySQL Credentials <<<
+define('DB_HOST', env('DB_HOST', 'sql302.infinityfree.com'));
+define('DB_NAME', env('DB_NAME', 'if0_42999413_vms'));
+define('DB_USER', env('DB_USER', 'if0_42999413'));
+define('DB_PASS', env('DB_PASS', 'ag1122GA'));
 
 define('APP_NAME', env('APP_NAME', 'VMS'));
 define('BASE_URL', env('BASE_URL', '/'));
