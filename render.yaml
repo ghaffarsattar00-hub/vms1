@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: vms
+    runtime: php
+    buildCommand: "echo 'No build step'"
+    startCommand: "php -S 0.0.0.0:$PORT -t public"
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: DB_HOST
+        sync: false
+      - key: DB_NAME
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASS
+        sync: false
+      - key: BASE_URL
+        value: /

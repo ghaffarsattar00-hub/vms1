@@ -1,0 +1,29 @@
+# Dependencies
+/vendor/
+node_modules/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+logs/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# PHP
+*.cache
+composer.lock
+.phpunit.result.cache
+
+# Temporary test files
+public/_t.php
+public/_file.php
+check_pw.php
