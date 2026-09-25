@@ -204,7 +204,6 @@ if (!empty($lowItems)): ?>
 </div>
 
 <script>
-var CSRF_TOKEN = '<?php echo Security::generateCsrfToken(); ?>';
 var currentOrderId = 0;
 var currentRestockId = 0;
 
