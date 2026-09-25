@@ -43,9 +43,9 @@ INSERT INTO users (user_id, role_id, full_name, email, phone, password_hash, is_
 (6,  2, 'Saira Bibi',            'saira.bibi@hotmail.com',  '+92 345 2223344', '$argon2id$v=19$m=65536,t=4,p=1$ZmYyTUgzVWZjcWNPekt2bQ$VvUPgqvpbNlqwzarxduHhboP7kAE6qOribAEm6SRXZM', 1, NOW(), NOW()),
 (7,  2, 'Omar Farooq',           'omar.farooq@gmail.com',   '+92 301 7778899', '$argon2id$v=19$m=65536,t=4,p=1$ZmYyTUgzVWZjcWNPekt2bQ$VvUPgqvpbNlqwzarxduHhboP7kAE6qOribAEm6SRXZM', 1, NOW(), NOW()),
 -- Hospital Staff
-(8,  3, 'Dr. Nadia Iqbal',       'nadia.iqbal@aku.edu.pk',  '+92 300 4445566', '$argon2id$v=19$m=65536,t=4,p=1$VVl6RHlTS2xJc28uV0JVYQ$LAeEN/iO8jJWWc1gt6qcAhUvl03c3GhDExWQJJJ1c3Y', 1, NOW(), NOW()),
-(9,  3, 'Dr. Imran Shah',        'imran.shah@shifa.edu.pk', '+92 321 3334455', '$argon2id$v=19$m=65536,t=4,p=1$VVl6RHlTS2xJc28uV0JVYQ$LAeEN/iO8jJWWc1gt6qcAhUvl03c3GhDExWQJJJ1c3Y', 1, NOW(), NOW()),
-(10, 3, 'Dr. Sana Qureshi',      'sana.qureshi@jinnah.edu.pk','+92 333 6667788','$argon2id$v=19$m=65536,t=4,p=1$VVl6RHlTS2xJc28uV0JVYQ$LAeEN/iO8jJWWc1gt6qcAhUvl03c3GhDExWQJJJ1c3Y',1, NOW(), NOW());
+(8,  3, 'Dr. Nadia Iqbal',       'info@aku.edu.pk',  '+92 300 4445566', '$argon2id$v=19$m=65536,t=4,p=1$VVl6RHlTS2xJc28uV0JVYQ$LAeEN/iO8jJWWc1gt6qcAhUvl03c3GhDExWQJJJ1c3Y', 1, NOW(), NOW()),
+(9,  3, 'Dr. Imran Shah',        'info@shifa.edu.pk', '+92 321 3334455', '$argon2id$v=19$m=65536,t=4,p=1$VVl6RHlTS2xJc28uV0JVYQ$LAeEN/iO8jJWWc1gt6qcAhUvl03c3GhDExWQJJJ1c3Y', 1, NOW(), NOW()),
+(10, 3, 'Dr. Sana Qureshi',      'info@jinnah.edu.pk','+92 333 6667788','$argon2id$v=19$m=65536,t=4,p=1$VVl6RHlTS2xJc28uV0JVYQ$LAeEN/iO8jJWWc1gt6qcAhUvl03c3GhDExWQJJJ1c3Y',1, NOW(), NOW());
 
 -- =====================================================
 -- HOSPITALS
