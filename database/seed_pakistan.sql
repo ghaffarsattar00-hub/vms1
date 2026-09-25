@@ -3,27 +3,31 @@
 -- =====================================================
 SET FOREIGN_KEY_CHECKS = 0;
 
-TRUNCATE TABLE vaccination_records;
-TRUNCATE TABLE appointments;
-TRUNCATE TABLE hospital_vaccine_inventory;
-TRUNCATE TABLE hospital_users;
-TRUNCATE TABLE vaccine_doses;
-TRUNCATE TABLE vaccines;
-TRUNCATE TABLE children;
-TRUNCATE TABLE hospitals;
-TRUNCATE TABLE users;
-TRUNCATE TABLE notifications;
-TRUNCATE TABLE audit_logs;
-TRUNCATE TABLE password_resets;
+DELETE FROM vaccination_records;
+DELETE FROM appointments;
+DELETE FROM hospital_vaccine_inventory;
+DELETE FROM hospital_users;
+DELETE FROM vaccine_doses;
+DELETE FROM vaccines;
+DELETE FROM children;
+DELETE FROM hospitals;
+DELETE FROM users;
+DELETE FROM notifications;
+DELETE FROM audit_logs;
+DELETE FROM password_resets;
 
 SET FOREIGN_KEY_CHECKS = 1;
 
 -- =====================================================
--- ROLES (already exists, keeping intact)
+-- ROLES (fresh DB ke liye - INSERT IGNORE safe hai)
 -- =====================================================
 -- role_id 1 = Administrator
 -- role_id 2 = Parent
 -- role_id 3 = Hospital Staff
+INSERT IGNORE INTO roles (role_id, role_name, role_key) VALUES
+(1, 'Administrator', 'admin'),
+(2, 'Parent', 'parent'),
+(3, 'Hospital Staff', 'hospital');
 
 -- =====================================================
 -- USERS (Admin, Parents, Hospital Staff)
@@ -151,31 +155,31 @@ INSERT INTO children (child_id, parent_user_id, first_name, last_name, date_of_b
 -- =====================================================
 -- APPOINTMENTS
 -- =====================================================
-INSERT INTO appointments (appointment_id, child_id, hospital_id, dose_id, scheduled_date, status, admin_notes, hospital_notes, requested_at, admin_decision_at, treated_at, active_request_flag, created_at, updated_at) VALUES
+INSERT INTO appointments (appointment_id, child_id, hospital_id, dose_id, scheduled_date, status, admin_notes, hospital_notes, requested_at, admin_decision_at, treated_at, created_at, updated_at) VALUES
 -- Zainab Raza - AKU Karachi
-(1,  1, 1, 1,  '2026-02-01', 'vaccinated',  NULL, 'BCG administered successfully', '2026-01-20 10:00:00', '2026-01-21 09:00:00', '2026-02-01 10:30:00', 0, NOW(), NOW()),
-(2,  1, 1, 2,  '2026-02-15', 'vaccinated',  NULL, 'Hep B 1st dose given',          '2026-02-01 11:00:00', '2026-02-02 09:00:00', '2026-02-15 11:00:00', 0, NOW(), NOW()),
-(3,  1, 1, 5,  '2026-07-15', 'approved',    NULL, NULL,                              '2026-07-01 09:00:00', '2026-07-02 10:00:00', NULL, 1, NOW(), NOW()),
+(1,  1, 1, 1,  '2026-02-01', 'vaccinated',  NULL, 'BCG administered successfully', '2026-01-20 10:00:00', '2026-01-21 09:00:00', '2026-02-01 10:30:00', NOW(), NOW()),
+(2,  1, 1, 2,  '2026-02-15', 'vaccinated',  NULL, 'Hep B 1st dose given',          '2026-02-01 11:00:00', '2026-02-02 09:00:00', '2026-02-15 11:00:00', NOW(), NOW()),
+(3,  1, 1, 5,  '2026-07-15', 'approved',    NULL, NULL,                              '2026-07-01 09:00:00', '2026-07-02 10:00:00', NULL, NOW(), NOW()),
 -- Ahmed Raza - AKU Karachi
-(4,  2, 1, 1,  '2026-07-20', 'vaccinated',  NULL, 'BCG given, no adverse reaction',  '2026-07-10 08:00:00', '2026-07-11 09:00:00', '2026-07-20 10:00:00', 0, NOW(), NOW()),
-(5,  2, 1, 8,  '2026-10-20', 'pending',     NULL, NULL,                              '2026-10-01 07:00:00', NULL, NULL, 1, NOW(), NOW()),
+(4,  2, 1, 1,  '2026-07-20', 'vaccinated',  NULL, 'BCG given, no adverse reaction',  '2026-07-10 08:00:00', '2026-07-11 09:00:00', '2026-07-20 10:00:00', NOW(), NOW()),
+(5,  2, 1, 8,  '2026-10-20', 'pending',     NULL, NULL,                              '2026-10-01 07:00:00', NULL, NULL, NOW(), NOW()),
 -- Ibrahim Ahmed - Shifa Islamabad
-(6,  3, 2, 1,  '2026-02-10', 'vaccinated',  NULL, 'Given at birth, premature baby stable', '2026-01-25 10:00:00', '2026-01-26 09:00:00', '2026-02-10 09:30:00', 0, NOW(), NOW()),
-(7,  3, 2, 5,  '2026-08-10', 'approved',    NULL, NULL,                              '2026-08-01 08:00:00', '2026-08-02 10:00:00', NULL, 1, NOW(), NOW()),
+(6,  3, 2, 1,  '2026-02-10', 'vaccinated',  NULL, 'Given at birth, premature baby stable', '2026-01-25 10:00:00', '2026-01-26 09:00:00', '2026-02-10 09:30:00', NOW(), NOW()),
+(7,  3, 2, 5,  '2026-08-10', 'approved',    NULL, NULL,                              '2026-08-01 08:00:00', '2026-08-02 10:00:00', NULL, NOW(), NOW()),
 -- Maryam Ahmed - Shifa Islamabad
-(8,  4, 2, 2,  '2026-09-05', 'pending',     NULL, NULL,                              '2026-09-01 09:00:00', NULL, NULL, 1, NOW(), NOW()),
+(8,  4, 2, 2,  '2026-09-05', 'pending',     NULL, NULL,                              '2026-09-01 09:00:00', NULL, NULL, NOW(), NOW()),
 -- Bilal Malik - Jinnah Lahore
-(9,  5, 3, 1,  '2026-03-30', 'vaccinated',  NULL, 'BCG given, monitored for 30 min', '2026-03-15 10:00:00', '2026-03-16 09:00:00', '2026-03-30 10:30:00', 0, NOW(), NOW()),
-(10, 5, 3, 8,  '2026-09-30', 'pending',     NULL, NULL,                              '2026-09-20 08:00:00', NULL, NULL, 1, NOW(), NOW()),
+(9,  5, 3, 1,  '2026-03-30', 'vaccinated',  NULL, 'BCG given, monitored for 30 min', '2026-03-15 10:00:00', '2026-03-16 09:00:00', '2026-03-30 10:30:00', NOW(), NOW()),
+(10, 5, 3, 8,  '2026-09-30', 'pending',     NULL, NULL,                              '2026-09-20 08:00:00', NULL, NULL, NOW(), NOW()),
 -- Ayesha Farooq - AKU Karachi
-(11, 6, 1, 11, '2026-09-12', 'vaccinated',  NULL, 'MMR 1st dose given on 1st birthday', '2026-09-01 10:00:00', '2026-09-02 09:00:00', '2026-09-12 11:00:00', 0, NOW(), NOW()),
+(11, 6, 1, 11, '2026-09-12', 'vaccinated',  NULL, 'MMR 1st dose given on 1st birthday', '2026-09-01 10:00:00', '2026-09-02 09:00:00', '2026-09-12 11:00:00', NOW(), NOW()),
 -- Hammad Farooq - Jinnah Lahore
-(12, 7, 3, 1,  '2026-04-18', 'vaccinated',  NULL, 'BCG administered, penicillin allergy noted', '2026-04-05 09:00:00', '2026-04-06 10:00:00', '2026-04-18 10:00:00', 0, NOW(), NOW()),
-(13, 7, 3, 5,  '2026-10-18', 'rejected',    'Schedule conflict - child has fever', NULL, '2026-10-01 08:00:00', '2026-10-02 09:00:00', NULL, 0, NOW(), NOW()),
+(12, 7, 3, 1,  '2026-04-18', 'vaccinated',  NULL, 'BCG administered, penicillin allergy noted', '2026-04-05 09:00:00', '2026-04-06 10:00:00', '2026-04-18 10:00:00', NOW(), NOW()),
+(13, 7, 3, 5,  '2026-10-18', 'rejected',    'Schedule conflict - child has fever', NULL, '2026-10-01 08:00:00', '2026-10-02 09:00:00', NULL, NOW(), NOW()),
 -- Zara Farooq - Shifa Islamabad
-(14, 8, 2, 1,  '2026-08-01', 'approved',    NULL, NULL,                              '2026-07-20 10:00:00', '2026-07-21 09:00:00', NULL, 1, NOW(), NOW()),
+(14, 8, 2, 1,  '2026-08-01', 'approved',    NULL, NULL,                              '2026-07-20 10:00:00', '2026-07-21 09:00:00', NULL, NOW(), NOW()),
 -- Zainab Raza follow-up
-(15, 1, 1, 15, '2026-10-15', 'pending',     NULL, NULL,                              '2026-10-01 11:00:00', NULL, NULL, 1, NOW(), NOW());
+(15, 1, 1, 15, '2026-10-15', 'pending',     NULL, NULL,                              '2026-10-01 11:00:00', NULL, NULL, NOW(), NOW());
 
 -- =====================================================
 -- VACCINATION RECORDS (for vaccinated appointments)
