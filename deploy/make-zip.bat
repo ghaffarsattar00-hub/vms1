@@ -16,7 +16,7 @@ powershell -NoProfile -Command ^
   "Copy-Item \"$src\deploy\public_html\*\" \"$tmp\public_html\" -Force;" ^
   "Copy-Item \"$src\app\" \"$tmp\app\" -Recurse;" ^
   "Copy-Item \"$src\core\" \"$tmp\core\" -Recurse;" ^
-  "Copy-Item \"$src\database\schema.sql\" \"$tmp\database\";" ^
+  "Copy-Item \"$src\database\schema_hosting.sql\" \"$tmp\database\";" ^
   "Copy-Item \"$src\database\seed_pakistan.sql\" \"$tmp\database\";" ^
   "Copy-Item \"$src\deploy\DEPLOY.md\" \"$tmp\DEPLOY.md\";" ^
   "Compress-Archive -Path \"$tmp\*\" -DestinationPath $out -Force;" ^

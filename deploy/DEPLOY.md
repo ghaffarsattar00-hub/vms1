@@ -8,7 +8,7 @@
 ├── app/
 ├── core/
 ├── database/
-│   ├── schema.sql
+│   ├── schema_hosting.sql
 │   └── seed_pakistan.sql
 └── public_html/        ← WEB ROOT (sirf yeh public hai)
     ├── .htaccess
@@ -57,7 +57,7 @@ Panel mein:
 ### 4. Database Import
 1. Panel → **phpMyAdmin**
 2. Apni DB select karo
-3. **Import** → `database/schema.sql` → Go
+3. **Import** → `database/schema_hosting.sql` → Go
 4. Phir **Import** → `database/seed_pakistan.sql` → Go
 
 ### 5. config.php edit karo
