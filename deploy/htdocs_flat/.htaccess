@@ -1,0 +1,27 @@
+# VMS - Apache rewrite (htdocs root layout)
+RewriteEngine On
+
+# Allow real files/folders
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Send everything else to front controller
+RewriteRule ^ index.php [L]
+
+# Deny access to sensitive files
+<FilesMatch "^(config\.php|\.env|.*\.sql|.*\.md)$">
+    Require all denied
+</FilesMatch>
+
+# Deny access to source folders (defense in depth)
+RedirectMatch 403 ^/(app|core|database)(/|$)
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Disable directory listing
+Options -Indexes
