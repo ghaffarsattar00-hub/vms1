@@ -122,9 +122,9 @@
                         <p class="text-[11px] font-bold text-emerald-600">Parent</p>
                         <p class="text-[10px] text-slate-400 mt-0.5 truncate">ali.raza@gmail.com</p>
                     </button>
-                    <button type="button" onclick="fillLogin('navyshifa@pns.net', 'hospital123')" class="cursor-pointer group px-2 py-2.5 bg-white rounded-xl border border-slate-200 hover:border-amber-300 hover:shadow-md transition-all duration-200 text-left">
-                        <p class="text-[11px] font-bold text-amber-600">PNS Shifa</p>
-                        <p class="text-[10px] text-slate-400 mt-0.5 truncate">navyshifa@pns.net</p>
+                    <button type="button" onclick="fillLogin('info@shifa.edu.pk', 'hospital123')" class="cursor-pointer group px-2 py-2.5 bg-white rounded-xl border border-slate-200 hover:border-amber-300 hover:shadow-md transition-all duration-200 text-left">
+                        <p class="text-[11px] font-bold text-amber-600">Shifa Intl</p>
+                        <p class="text-[10px] text-slate-400 mt-0.5 truncate">info@shifa.edu.pk</p>
                     </button>
                 </div>
                 <div class="grid grid-cols-2 gap-2 mt-2">
@@ -235,9 +235,9 @@
                         <p class="text-[11px] font-bold text-emerald-600 group-hover:text-emerald-700">Parent</p>
                         <p class="text-[10px] text-slate-400 mt-0.5 truncate">ali.raza@gmail.com</p>
                     </button>
-                    <button type="button" onclick="fillLogin('navyshifa@pns.net', 'hospital123')" class="cursor-pointer group px-3 py-2.5 bg-white rounded-xl border border-slate-200 hover:border-amber-300 hover:shadow-md transition-all duration-200 text-left">
-                        <p class="text-[11px] font-bold text-amber-600 group-hover:text-amber-700">PNS Shifa</p>
-                        <p class="text-[10px] text-slate-400 mt-0.5 truncate">navyshifa@pns.net</p>
+                    <button type="button" onclick="fillLogin('info@shifa.edu.pk', 'hospital123')" class="cursor-pointer group px-3 py-2.5 bg-white rounded-xl border border-slate-200 hover:border-amber-300 hover:shadow-md transition-all duration-200 text-left">
+                        <p class="text-[11px] font-bold text-amber-600 group-hover:text-amber-700">Shifa Intl</p>
+                        <p class="text-[10px] text-slate-400 mt-0.5 truncate">info@shifa.edu.pk</p>
                     </button>
                 </div>
                 <div class="grid grid-cols-2 gap-2 mt-2">
