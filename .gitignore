@@ -27,3 +27,6 @@ composer.lock
 public/_t.php
 public/_file.php
 check_pw.php
+
+# Deploy extracted staging
+deploy/extracted/
