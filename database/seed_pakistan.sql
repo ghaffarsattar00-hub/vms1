@@ -34,18 +34,18 @@ INSERT IGNORE INTO roles (role_id, role_name, role_key) VALUES
 -- =====================================================
 INSERT INTO users (user_id, role_id, full_name, email, phone, password_hash, is_active, created_at, updated_at) VALUES
 -- Admins
-(1,  1, 'Dr. Ayesha Khan',       'admin@aku.edu.pk',        '+92 300 1234567', '$argon2id$v=19$m=65536,t=4,p=1$dGVzdA$testhash1', 1, NOW(), NOW()),
-(2,  1, 'Dr. Usman Tariq',       'usman.tariq@shifa.edu.pk','+92 321 9876543', '$argon2id$v=19$m=65536,t=4,p=1$dGVzdA$testhash2', 1, NOW(), NOW()),
+(1,  1, 'Dr. Ayesha Khan',       'admin@aku.edu.pk',        '+92 300 1234567', '$argon2id$v=19$m=65536,t=4,p=1$ZmYyTUgzVWZjcWNPekt2bQ$VvUPgqvpbNlqwzarxduHhboP7kAE6qOribAEm6SRXZM', 1, NOW(), NOW()),
+(2,  1, 'Dr. Usman Tariq',       'usman.tariq@shifa.edu.pk','+92 321 9876543', '$argon2id$v=19$m=65536,t=4,p=1$ZmYyTUgzVWZjcWNPekt2bQ$VvUPgqvpbNlqwzarxduHhboP7kAE6qOribAEm6SRXZM', 1, NOW(), NOW()),
 -- Parents
-(3,  2, 'Ali Raza',              'ali.raza@gmail.com',      '+92 333 1112233', '$argon2id$v=19$m=65536,t=4,p=1$dGVzdA$testhash3', 1, NOW(), NOW()),
-(4,  2, 'Fatima Ahmed',          'fatima.ahmed@outlook.com','+92 300 5556677', '$argon2id$v=19$m=65536,t=4,p=1$dGVzdA$testhash4', 1, NOW(), NOW()),
-(5,  2, 'Hassan Malik',          'hassan.malik@yahoo.com',  '+92 312 8889900', '$argon2id$v=19$m=65536,t=4,p=1$dGVzdA$testhash5', 1, NOW(), NOW()),
-(6,  2, 'Saira Bibi',            'saira.bibi@hotmail.com',  '+92 345 2223344', '$argon2id$v=19$m=65536,t=4,p=1$dGVzdA$testhash6', 1, NOW(), NOW()),
-(7,  2, 'Omar Farooq',           'omar.farooq@gmail.com',   '+92 301 7778899', '$argon2id$v=19$m=65536,t=4,p=1$dGVzdA$testhash7', 1, NOW(), NOW()),
+(3,  2, 'Ali Raza',              'ali.raza@gmail.com',      '+92 333 1112233', '$argon2id$v=19$m=65536,t=4,p=1$ZmYyTUgzVWZjcWNPekt2bQ$VvUPgqvpbNlqwzarxduHhboP7kAE6qOribAEm6SRXZM', 1, NOW(), NOW()),
+(4,  2, 'Fatima Ahmed',          'fatima.ahmed@outlook.com','+92 300 5556677', '$argon2id$v=19$m=65536,t=4,p=1$ZmYyTUgzVWZjcWNPekt2bQ$VvUPgqvpbNlqwzarxduHhboP7kAE6qOribAEm6SRXZM', 1, NOW(), NOW()),
+(5,  2, 'Hassan Malik',          'hassan.malik@yahoo.com',  '+92 312 8889900', '$argon2id$v=19$m=65536,t=4,p=1$ZmYyTUgzVWZjcWNPekt2bQ$VvUPgqvpbNlqwzarxduHhboP7kAE6qOribAEm6SRXZM', 1, NOW(), NOW()),
+(6,  2, 'Saira Bibi',            'saira.bibi@hotmail.com',  '+92 345 2223344', '$argon2id$v=19$m=65536,t=4,p=1$ZmYyTUgzVWZjcWNPekt2bQ$VvUPgqvpbNlqwzarxduHhboP7kAE6qOribAEm6SRXZM', 1, NOW(), NOW()),
+(7,  2, 'Omar Farooq',           'omar.farooq@gmail.com',   '+92 301 7778899', '$argon2id$v=19$m=65536,t=4,p=1$ZmYyTUgzVWZjcWNPekt2bQ$VvUPgqvpbNlqwzarxduHhboP7kAE6qOribAEm6SRXZM', 1, NOW(), NOW()),
 -- Hospital Staff
-(8,  3, 'Dr. Nadia Iqbal',       'nadia.iqbal@aku.edu.pk',  '+92 300 4445566', '$argon2id$v=19$m=65536,t=4,p=1$dGVzdA$testhash8', 1, NOW(), NOW()),
-(9,  3, 'Dr. Imran Shah',        'imran.shah@shifa.edu.pk', '+92 321 3334455', '$argon2id$v=19$m=65536,t=4,p=1$dGVzdA$testhash9', 1, NOW(), NOW()),
-(10, 3, 'Dr. Sana Qureshi',      'sana.qureshi@jinnah.edu.pk','+92 333 6667788','$argon2id$v=19$m=65536,t=4,p=1$dGVzdA$testhash10',1, NOW(), NOW());
+(8,  3, 'Dr. Nadia Iqbal',       'nadia.iqbal@aku.edu.pk',  '+92 300 4445566', '$argon2id$v=19$m=65536,t=4,p=1$VVl6RHlTS2xJc28uV0JVYQ$LAeEN/iO8jJWWc1gt6qcAhUvl03c3GhDExWQJJJ1c3Y', 1, NOW(), NOW()),
+(9,  3, 'Dr. Imran Shah',        'imran.shah@shifa.edu.pk', '+92 321 3334455', '$argon2id$v=19$m=65536,t=4,p=1$VVl6RHlTS2xJc28uV0JVYQ$LAeEN/iO8jJWWc1gt6qcAhUvl03c3GhDExWQJJJ1c3Y', 1, NOW(), NOW()),
+(10, 3, 'Dr. Sana Qureshi',      'sana.qureshi@jinnah.edu.pk','+92 333 6667788','$argon2id$v=19$m=65536,t=4,p=1$VVl6RHlTS2xJc28uV0JVYQ$LAeEN/iO8jJWWc1gt6qcAhUvl03c3GhDExWQJJJ1c3Y',1, NOW(), NOW());
 
 -- =====================================================
 -- HOSPITALS
