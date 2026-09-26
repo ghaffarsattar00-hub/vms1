@@ -3,6 +3,9 @@
 // Vaccination Management System (VMS)
 // Values from environment (.env / host) take priority; fallback = local XAMPP
 
+// Keep PHP clocks in sync with MySQL's NOW() (Pakistan time)
+date_default_timezone_set('Asia/Karachi');
+
 function env(string $key, string $default = ''): string {
     $v = getenv($key);
     return ($v === false || $v === '') ? $default : $v;

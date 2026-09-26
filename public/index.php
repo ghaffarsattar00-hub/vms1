@@ -33,6 +33,10 @@ $router->post('login', 'AuthController@authenticate');
 $router->get('register', 'AuthController@register');
 $router->post('register', 'AuthController@storeParent');
 $router->get('logout', 'AuthController@logout');
+$router->get('forgot-password', 'AuthController@forgotPassword');
+$router->post('forgot-password', 'AuthController@forgotPassword');
+$router->get('reset-password', 'AuthController@resetPassword');
+$router->post('reset-password', 'AuthController@resetPassword');
 
 // --- Admin Module Routes ---
 $router->get('admin/dashboard', 'AdminController@dashboard');
