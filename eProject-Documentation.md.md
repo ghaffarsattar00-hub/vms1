@@ -6,9 +6,11 @@
 
 **Technology Stack:** PHP 8+ (MVC Architecture) | MySQL 8.0 | Tailwind CSS | Vanilla JavaScript
 
-**Document Version:** 1.0
+**Document Version:** 1.1
 
 **Date:** September 2026
+
+**Live URL:** https://vams.infinityfreeapp.com/
 
 ---
 
@@ -117,12 +119,69 @@ The Hospital role allows healthcare facilities to manage assigned vaccinations.
 | HOS-006 | Dashboard | View pending, approved, and completed appointment counts |
 | HOS-007 | Inventory Management | View and update vaccine stock availability |
 
+### 2.2.4 Authentication & Password Recovery Module
+
+Authentication is shared across all roles; password recovery lets any locked-out user regain access.
+
+| Requirement ID | Functionality | Description |
+|----------------|---------------|-------------|
+| AUT-001 | Secure Login | Email + password login with Argon2id/BCrypt verification, session creation, and role-based redirect |
+| AUT-002 | Role Gatekeeping | Inactive accounts are rejected; each role redirects to its own dashboard |
+| AUT-003 | Forgot Password | User submits email → a single-use reset token (64-hex, valid 1 hour) is generated and a reset link is produced |
+| AUT-004 | Reset Password | Token is validated (format, existence, expiry, activity), new password is hashed and stored, token is destroyed (single-use) |
+| AUT-005 | Email Fallback | On hosts without `mail()` (e.g. InfinityFree), a mock email preview page displays the reset link; in production `mail()` is attempted with a generic success message (no account enumeration) |
+| AUT-006 | CSRF Protection | Login, forgot, and reset forms all carry and validate CSRF tokens |
+
 ## 2.3 Non-Functional Requirements
 
 - **Security:** Passwords stored using Argon2id hashing; CSRF token protection on all forms
 - **Responsiveness:** Fully responsive design for mobile, tablet, and desktop
 - **Performance:** Page load time under 2 seconds on standard broadband
 - **Browser Compatibility:** Chrome, Firefox, Edge, Safari (latest 2 versions)
+
+## 2.4 Live Deployment
+
+The system is deployed and publicly accessible for evaluation:
+
+| Item | Value |
+|------|-------|
+| **Live URL** | **https://vams.infinityfreeapp.com/** |
+| Hosting | InfinityFree (free shared hosting, PHP 8.x) |
+| Structure | Flat `public_html/` (front controller `index.php`, MVC under `app/`) |
+| Database | MySQL (`if0_42999413_vms` on `sql302.infinityfree.com`) |
+| Environment | `APP_ENV=production` (errors hidden, `mail()` attempted for real emails; forgot-password falls back to a mock email preview page because InfinityFree blocks outbound mail) |
+
+## 2.5 Demo Accounts (Seed Data)
+
+All accounts below are created by `database/seed_pakistan.sql` and verified against the deployed database.
+
+### Admin
+| Email | Password |
+|-------|----------|
+| admin@aku.edu.pk | password |
+| usman.tariq@shifa.edu.pk | password |
+
+### Parent
+| Email | Password |
+|-------|----------|
+| ali.raza@gmail.com | password |
+| fatima.ahmed@outlook.com | password |
+| hassan.malik@yahoo.com | password |
+| saira.bibi@hotmail.com | password |
+| omar.farooq@gmail.com | password |
+
+### Hospital
+| Email | Password |
+|-------|----------|
+| info@aku.edu.pk (Aga Khan University Hospital) | hospital123 |
+| info@shifa.edu.pk (Shifa International Hospital) | hospital123 |
+| info@jinnah.edu.pk (Jinnah Hospital Lahore) | hospital123 |
+| navyshifa@pns.net (PNS Shifa) | hospital123 |
+| test@hospital.edu.pk | hospital123 |
+| test@hospital.pk | hospital123 |
+| nadia.iqbal@aku.edu.pk | password |
+| imran.shah@shifa.edu.pk | password |
+| sana.qureshi@jinnah.edu.pk | password |
 
 ---
 
@@ -561,6 +620,9 @@ The project was completed within the planned 8-week timeline. All modules were d
 | TC-010 | Access Control | Hospital tries to access another hospital's appointments | Access denied; unauthorized appointment blocked | Pass |
 | TC-011 | CSRF Protection | Submit form with expired/missing CSRF token | Error "Invalid security token" displayed | Pass |
 | TC-012 | Admin - Hospitals | Add new hospital with valid data | Hospital created and displayed in list | Pass |
+| TC-013 | Password Recovery | Submit forgot-password form with registered email | Reset link generated (mock email preview on hosting without mail()) | Pass |
+| TC-014 | Password Recovery | Open reset link and set new password | Old password rejected, new password signs in to correct dashboard | Pass |
+| TC-015 | Password Recovery | Reuse an already-used or expired reset token | Redirected to /forgot-password with "invalid or expired" error | Pass |
 
 ---
 
@@ -576,9 +638,11 @@ The project was completed within the planned 8-week timeline. All modules were d
 - [x] **Interface Mockups** — Textual wireframes for Admin Dashboard and Parent Booking Page
 - [x] **Task Sheet** — Task allocation table with timelines
 - [x] **Status Reports** — Weekly progress reports submitted to eProjects team
-- [x] **Unit Testing** — Test case checklist with 12 verified test cases
+- [x] **Unit Testing** — Test case checklist with 15 verified test cases
+- [x] **Live Deployment** — Production site at https://vams.infinityfreeapp.com/ (InfinityFree)
+- [x] **Screenshots** — `docs/screenshots/` (login, mobile, forgot-password, inventory modals)
 - [x] **Final Checklist** — This section confirming all deliverables
-- [x] **Project ZIP** — All files compressed and ready for submission
+- [x] **Project ZIP** — All files compressed and ready for submission (`VMS-eProject.zip`)
 
 ---
 

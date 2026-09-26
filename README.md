@@ -3,6 +3,8 @@
 Enterprise PHP 8 MVC eProject — MySQL, Tailwind CSS, Vanilla JS.  
 Pakistan-localized seed data, strict RBAC (Admin / Parent / Hospital), appointment workflow, inventory orders with delivery ETA.
 
+**Live URL: https://vams.infinityfreeapp.com/**
+
 ## Stack
 
 | Layer | Tech |
@@ -10,38 +12,63 @@ Pakistan-localized seed data, strict RBAC (Admin / Parent / Hospital), appointme
 | Backend | PHP 8+ (custom MVC, no framework) |
 | Database | MySQL 8 / MariaDB |
 | Frontend | Tailwind CSS (CDN), Vanilla JS |
-| Auth | Session-based, Argon2id passwords |
+| Auth | Session-based, Argon2id/BCrypt passwords, CSRF tokens |
 
-## Roles & Demo Logins
+## Demo Logins (all seeded accounts)
 
-| Role | Email | Password |
-|------|-------|----------|
-| Admin | `admin@aku.edu.pk` | `password` |
-| Parent | `ali.raza@gmail.com` | `password` |
-| Hospital (PNS Shifa) | `navyshifa@pns.net` | `hospital123` |
-| Hospital (Aga Khan) | `info@aku.edu.pk` | `hospital123` |
-| Hospital (Jinnah) | `info@jinnah.edu.pk` | `hospital123` |
+### Admin
+| Email | Password |
+|-------|----------|
+| `admin@aku.edu.pk` | `password` |
+| `usman.tariq@shifa.edu.pk` | `password` |
+
+### Parent
+| Email | Password |
+|-------|----------|
+| `ali.raza@gmail.com` | `password` |
+| `fatima.ahmed@outlook.com` | `password` |
+| `hassan.malik@yahoo.com` | `password` |
+| `saira.bibi@hotmail.com` | `password` |
+| `omar.farooq@gmail.com` | `password` |
+
+### Hospital
+| Email | Password |
+|-------|----------|
+| `info@aku.edu.pk` (Aga Khan) | `hospital123` |
+| `info@shifa.edu.pk` (Shifa Intl) | `hospital123` |
+| `info@jinnah.edu.pk` (Jinnah Lahore) | `hospital123` |
+| `navyshifa@pns.net` (PNS Shifa) | `hospital123` |
+| `test@hospital.edu.pk` | `hospital123` |
+| `test@hospital.pk` | `hospital123` |
+| `nadia.iqbal@aku.edu.pk` | `password` |
+| `imran.shah@shifa.edu.pk` | `password` |
+| `sana.qureshi@jinnah.edu.pk` | `password` |
+
+> Password recovery: login page → **Forgot password?** → link valid 1 hour (mock email preview page opens on hosts without `mail()`).
 
 ## Local Setup (XAMPP / LAMP)
 
 1. **Clone**
    ```bash
-   git clone https://github.com/USERNAME/vms.git
-   cd vms
+   git clone https://github.com/ghaffarsattar00-hub/vms1.git
+   cd vms1
    ```
 
 2. **Database**
    ```bash
    mysql -u root -e "CREATE DATABASE vms_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
-   mysql -u root vms_db < database/schema.sql
+   mysql -u root vms_db < database/schema_hosting.sql
    mysql -u root vms_db < database/seed_pakistan.sql
    ```
+   Existing database? Add reset-password columns only:
+   ```bash
+   mysql -u root vms_db < database/add_reset_token.sql
+   ```
 
-3. **Config** — copy example if needed, or edit `config.php`:
+3. **Config** — `config.php` (defaults work with local XAMPP: `root` / empty password):
    ```bash
    cp .env.example .env   # optional
    ```
-   Defaults work with local XAMPP (`root` / empty password).
 
 4. **Run**
    ```bash
@@ -62,7 +89,15 @@ Pakistan-localized seed data, strict RBAC (Admin / Parent / Hospital), appointme
 
 ## Deploy
 
-> **Note:** Vercel does not run PHP/MySQL. Use Railway, Render, or shared PHP hosting.
+### InfinityFree (LIVE — used for this project)
+1. **Live URL: https://vams.infinityfreeapp.com/** (account `if0_42999413`)
+2. Panel → File Manager → upload `deploy/vms-full.zip` into `public_html/` → Extract (flat structure: `index.php`, `config.php`, `app/`, `core/`, `database/`)
+3. phpMyAdmin → Import `database/add_reset_token.sql` (adds reset-token columns on existing DBs)
+4. DB creds live in `config.php` (`sql302.infinityfree.com` / `if0_42999413_vms`), `APP_ENV=production`
+5. Note: InfinityFree disables `mail()` — forgot-password shows a **mock email preview page** with the reset link instead
+
+### Railway / Render / Shared cPanel
+> Vercel does not run PHP/MySQL. Use Railway, Render, or shared PHP hosting.
 
 ### Railway
 1. Push this repo to GitHub
@@ -103,7 +138,8 @@ Pakistan-localized seed data, strict RBAC (Admin / Parent / Hospital), appointme
 - **Admin:** hospitals, vaccines, inventory, orders (approve/deliver), view-only appointments  
 - **Parent:** children profiles, book appointments, track status  
 - **Hospital:** approve/reject appointments, mark vaccinated, inventory, place orders  
-- Audit logs, CSRF protection, role-based access, responsive enterprise UI  
+- **Auth:** login/register, **forgot/reset password** (1-hour token, single-use), role-based redirect  
+- Audit logs, CSRF protection, responsive enterprise UI  
 
 ## Documentation
 

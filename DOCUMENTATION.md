@@ -28,6 +28,9 @@ The **Vaccination Management System (VMS)** is a web-based platform designed to 
 - **Parent Portal:** Secure registration, child profile management, and appointment booking at preferred hospitals with real-time vaccine availability.
 - **Hospital Portal:** View assigned appointments, mark children as vaccinated via AJAX, and manage daily vaccination workflows.
 - **Admin Dashboard:** Full control over hospitals (CRUD), vaccine inventory management with toggle switches, appointment approval/rejection, and analytics via Chart.js.
+- **Password Recovery:** "Forgot password?" flow with single-use 1-hour reset tokens; mock email preview page on hosts without `mail()`.
+
+**Live URL:** https://vams.infinityfreeapp.com/
 
 ### 2.3 Technology Stack
 | Component | Technology |
@@ -341,14 +344,30 @@ Vaccination-Management-System/
 
 ## 9. Installation & Setup Instructions
 
-1. **Import Database:** Run `database/schema.sql` in MySQL to create the `vms_db` database with all tables and seed data.
-2. **Configure Credentials:** Update `config.php` with your MySQL credentials (default: root with no password).
-3. **Start PHP Server:** Run `php -S localhost:8000 -t public` from the project root.
-4. **Access Application:** Open `http://localhost:8000` in your browser.
-5. **Login:** Use demo credentials:
-   - Admin: admin@vms.com / password
-   - Parent: parent@vms.com / password
-   - Hospital: hospital@vms.com / password
+1. **Import Database:** Run `database/schema_hosting.sql` then `database/seed_pakistan.sql` in MySQL (`vms_db`). Upgrading an older database? Run `database/add_reset_token.sql` (adds reset-token columns).
+2. **Configure Credentials:** `config.php` — defaults work with local XAMPP (`root` / empty password); environment variables override them.
+3. **Start PHP Server:** Run `php -S 127.0.0.1:8080 -t public` from the project root.
+4. **Access Application:** Open `http://127.0.0.1:8080` (live: **https://vams.infinityfreeapp.com/**).
+5. **Login:** Use seed credentials:
+
+   | Role | Email | Password |
+   |------|-------|----------|
+   | Admin | admin@aku.edu.pk | password |
+   | Admin | usman.tariq@shifa.edu.pk | password |
+   | Parent | ali.raza@gmail.com | password |
+   | Parent | fatima.ahmed@outlook.com | password |
+   | Parent | hassan.malik@yahoo.com | password |
+   | Parent | saira.bibi@hotmail.com | password |
+   | Parent | omar.farooq@gmail.com | password |
+   | Hospital | info@aku.edu.pk | hospital123 |
+   | Hospital | info@shifa.edu.pk | hospital123 |
+   | Hospital | info@jinnah.edu.pk | hospital123 |
+   | Hospital | navyshifa@pns.net | hospital123 |
+   | Hospital | test@hospital.edu.pk | hospital123 |
+   | Hospital | test@hospital.pk | hospital123 |
+   | Hospital | nadia.iqbal@aku.edu.pk | password |
+   | Hospital | imran.shah@shifa.edu.pk | password |
+   | Hospital | sana.qureshi@jinnah.edu.pk | password |
 
 ---
 
