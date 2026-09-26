@@ -132,12 +132,12 @@ if (!empty($lowItems)): ?>
 <?php endif; ?>
 
 <!-- Order Modal -->
-<div id="orderModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-gray-900/60 backdrop-blur-sm" onclick="closeOrderModal()">
-    <div class="w-full max-w-lg bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col relative fade-up" onclick="event.stopPropagation()">
+<div id="orderModal" class="fixed inset-0 z-[9999] hidden flex items-center justify-center h-[100dvh] w-screen bg-gray-900/50 backdrop-blur-sm overflow-hidden" onclick="closeOrderModal()">
+    <div class="w-[90%] max-w-md bg-white rounded-2xl shadow-2xl relative max-h-[85dvh] overflow-y-auto" onclick="event.stopPropagation()">
         <button onclick="closeOrderModal()" class="absolute top-4 right-4 z-10 text-slate-400 hover:text-slate-600 transition">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
-        <div class="max-h-[80vh] overflow-y-auto p-6">
+        <div class="p-6">
             <h3 class="text-lg font-bold text-slate-900 mb-1">Order Vaccine</h3>
             <p class="text-sm text-slate-500 mb-5">Place a restocking order for admin approval</p>
 
@@ -174,12 +174,12 @@ if (!empty($lowItems)): ?>
 </div>
 
 <!-- Restock Modal -->
-<div id="restockModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-gray-900/60 backdrop-blur-sm" onclick="closeRestockModal()">
-    <div class="w-full max-w-lg bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col relative fade-up" onclick="event.stopPropagation()">
+<div id="restockModal" class="fixed inset-0 z-[9999] hidden flex items-center justify-center h-[100dvh] w-screen bg-gray-900/50 backdrop-blur-sm overflow-hidden" onclick="closeRestockModal()">
+    <div class="w-[90%] max-w-md bg-white rounded-2xl shadow-2xl relative max-h-[85dvh] overflow-y-auto" onclick="event.stopPropagation()">
         <button onclick="closeRestockModal()" class="absolute top-4 right-4 z-10 text-slate-400 hover:text-slate-600 transition">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
-        <div class="max-h-[80vh] overflow-y-auto p-6">
+        <div class="p-6">
             <h3 class="text-lg font-bold text-slate-900 mb-1">Quick Restock</h3>
             <p class="text-sm text-slate-500 mb-5">Directly add stock (for received deliveries)</p>
 

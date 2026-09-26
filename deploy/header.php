@@ -76,8 +76,8 @@
         @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
         .toast-exit { animation: toastOut 0.3s ease-in forwards; }
         @keyframes toastOut { to { transform: translateX(100%); opacity: 0; } }
-        .fade-in { animation: fadeIn 0.4s ease-out forwards; opacity: 0; transform: translateY(8px); }
-        @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; opacity: 0; }
+        @keyframes fadeIn { to { opacity: 1; } }
 
         /* ===== CARDS ===== */
         .widget-card { transition: all 0.2s ease; }
@@ -255,4 +255,4 @@
     </header>
 
     <!-- Page Content -->
-    <div class="p-4 sm:p-6 lg:p-8 fade-in">
+    <div class="p-4 sm:p-6 lg:p-8">
